@@ -2,6 +2,10 @@ from meta import MessageWorker, MessageCommand, MultiProcessWorker
 import time, datetime
 
 class Worker(MultiProcessWorker, MessageWorker):
+    """
+    Worker's class. All your business logic must be put here.
+    """
+
     def __init__(self, **kwargs):
         MultiProcessWorker.__init__(self, **kwargs)
 
@@ -26,6 +30,10 @@ class Worker(MultiProcessWorker, MessageWorker):
         self._logger.info(f"Sent message {message}")
 
     def mainloop(self):
+        """
+        Main loop of Worker's class
+        :return: None
+        """
         while not self._stop_flag.is_set():
             self.receive_message()
 

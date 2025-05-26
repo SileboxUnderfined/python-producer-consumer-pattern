@@ -8,10 +8,23 @@ from worker import Worker
 import logging, signal
 
 def start_worker(**kwargs):
+    """
+    Function to start Worker process
+    :param kwargs: params for Worker class
+    :return: None
+    """
+
     w = Worker(**kwargs)
     w.mainloop()
 
 def start_server(**kwargs):
+    """
+    Function to start Server process. if environment variable ``DEBUG`` is ``1``, then it starts
+    flask werkzeug server, else - waitress production WSGI server.
+    :param kwargs: params for Server class
+    :return: None
+    """
+
     s = Server(**kwargs)
 
     if kwargs['env']['DEBUG'] == '1':
@@ -20,6 +33,13 @@ def start_server(**kwargs):
         waitress_serve(s,host=kwargs['env']['WAITRESS_HOST'],port=kwargs['env']['WAITRESS_PORT'])
 
 def setup_env(keys: list[str]) -> dict[str, str]:
+    """
+    Function that brings ``keys`` and ``values`` from ``os.environ``
+    and returns dictionary with these values.
+    :param keys: keys that need to be brought from ``os.environ``
+    :return: Dictionary with keys and values from ``os.environ``
+    """
+
     result = {}
     for key in keys:
         if key in environ: result[key] = environ[key]
@@ -32,6 +52,13 @@ def check_env():
     assert 'WAITRESS_PORT' in environ
 
 def grateful_exit(signum, frame):
+    """
+    Function that gratefully stops processes using ``Event`` mechanism of ``multiprocessing``
+    :param signum:
+    :param frame:
+    :return: None
+    """
+
     logger.info("Stopping processes...")
     stop_flag.set()
 

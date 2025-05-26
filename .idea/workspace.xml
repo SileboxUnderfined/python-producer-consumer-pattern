@@ -5,25 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ad797fc-ac22-4189-be4d-c82900c4db9d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dockerized-microservice-template.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/meta/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/meta/logging_worker.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/meta/message_command.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/meta/message_worker.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_worker.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/worker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/meta/logger_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/meta/logger_setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/meta/message_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/meta/message_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/meta/message_worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/meta/message_worker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/meta/multi_process_worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/meta/multi_process_worker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/worker.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +29,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;SileboxUnderfined&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/SileboxUnderfined/python-producer-consumer-pattern.git&quot;,
+    &quot;accountId&quot;: &quot;aec7a550-0a5b-421c-93b4-129e225eddd3&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -53,6 +54,8 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Docker.Docker.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.nuc.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -61,10 +64,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/meta" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Docker.nuc">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python">
       <module name="dockerized-microservice-template" />
       <option name="ENV_FILES" value="" />
@@ -72,6 +76,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DEBUG" value="0" />
         <env name="WAITRESS_HOST" value="127.0.0.1" />
         <env name="WAITRESS_PORT" value="8000" />
       </envs>
@@ -91,7 +96,7 @@
           <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
         </ENTRIES>
       </EXTENSION>
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -100,6 +105,45 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Docker" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="containerName" value="template_dockerized" />
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="80" />
+                <option name="hostPort" value="8000" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="nuc" type="docker-deploy" factoryName="dockerfile" server-name="intel_nuc">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="containerName" value="template_dockerized" />
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="80" />
+                <option name="hostPort" value="5678" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Docker.Docker" />
+      <item itemvalue="Docker.nuc" />
+      <item itemvalue="Python.main" />
+    </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>

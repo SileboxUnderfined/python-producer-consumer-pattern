@@ -4,7 +4,17 @@ import logging
 
 
 class Server(Flask, MultiProcessWorker, MessageWorker):
+    """
+    Server's class. All interaction with user must be described here.
+    """
+
     def __init__(self, **kwargs):
+        """
+        Constructor of Server's class. It calls constructors of super classes, then setups logging
+        and after that setups url rules.
+        :param kwargs: arguments for ``MultiProcessWorker`` constructor
+        """
+        
         Flask.__init__(self, __name__)
         MultiProcessWorker.__init__(self, **kwargs)
 
